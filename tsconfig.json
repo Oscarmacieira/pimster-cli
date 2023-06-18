@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "newLine": "LF",
+    "noEmitHelpers": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "baseUrl": "packages",
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "target": "ES2020",
+    "module": "esnext",
+    "outDir": "./dist/esm",
+    "rootDir": "src",
+    "strict": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "lib": [
+      "es2017",
+      "es2018",
+      "es2019",
+      "es2020",
+      "dom"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/index.d.ts "
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+    "jest.config.js",
+    "imgs/**/*"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "14.18.0"
+        },
+        "modules": "commonjs"
+      }
+    ],
+    [
+      "@babel/preset-typescript",
+      {
+        "allExtensions": true,
+        "isTSX": false,
+        "useBuiltIns": "usage"
+        //      "corejs": 3,
+      }
+    ]
+  ],
+  "ignore": [
+    "templates",
+    "**/*.test.ts",
+    "jest.config.js",
+    "babel.config.json"
+  ],
+  "exclude": ["node_modules"],
+  "plugins": [
+    "@babel/plugin-transform-modules-commonjs",
+    "@babel/plugin-proposal-optional-chaining"
+  ]
+}

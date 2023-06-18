@@ -1,0 +1,59 @@
+{
+  "name": "@pimstar/pimster-cli",
+  "version": "0.6.0",
+  "description": "Our ultra cool CLI for pimster projects",
+  "main": "dist/cjs/index.js",
+  "author": "oscarmac",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "license": "UNLICENSED",
+  "private": false,
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    },
+    "./src": {
+      "require": "./src/index.js",
+      "import": "./src/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build:babel": "npx babel src --out-dir dist/esm --extensions '.ts,.tsx' --presets=@babel/preset-env,@babel/preset-typescript --plugins=@babel/plugin-proposal-optional-chaining,@babel/plugin-proposal-nullish-coalescing-operator && npx babel src --out-dir dist/cjs --extensions '.ts,.tsx' --presets=@babel/preset-env,@babel/preset-typescript --plugins=@babel/plugin-proposal-optional-chaining,@babel/plugin-proposal-nullish-coalescing-operator",
+    "build:tsc": "tsc --noEmit && tsc --declaration --emitDeclarationOnly --outDir dist/esm",
+    "build:perm": "chmod +rx ./dist/cjs/index.js",
+    "prebuild": "yarn clean",
+    "build:all": "yarn build:tsc && yarn build:babel && yarn build:perm",
+    "link:pimster": "yarn unlink && yarn build:all && yarn link",
+    "publish:cli": "yarn link:pimster && yarn publish --access=public"
+  },
+  "engines": {
+    "node": ">=14.16.0"
+  },
+  "bin": {
+    "pimster": "./dist/cjs/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@types/find-config": "^1.0.1",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^20.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+    "chalk": "^4.1.0",
+    "commander": "^11.0.0",
+    "find-config": "^1.0.0",
+    "inquirer": "^7.3.3",
+    "ora": "^4.1.1",
+    "path": "^0.12.7"
+  }
+}
